@@ -1,0 +1,182 @@
+[
+  {
+    "id": "it-001",
+    "category": "IT",
+    "question": "How do I reset my password?",
+    "answer": "Go to the Self-Service Password Portal at https://passwords.novatech.example, click 'Forgot Password', enter your employee ID and follow the link sent to your registered email. If you cannot access your email, call the IT Helpdesk at ext. 2020."
+  },
+  {
+    "id": "it-002",
+    "category": "IT",
+    "question": "My account is locked. What should I do?",
+    "answer": "Accounts lock automatically after 5 failed sign-in attempts. Wait 15 minutes for it to unlock, or reset your password through the Self-Service Password Portal. If it is still locked, call the IT Helpdesk at ext. 2020."
+  },
+  {
+    "id": "it-003",
+    "category": "IT",
+    "question": "What is the password policy?",
+    "answer": "Passwords must be at least 12 characters and include upper case, lower case, a number and a symbol. Passwords expire every 90 days, and you cannot reuse your last 5 passwords."
+  },
+  {
+    "id": "it-004",
+    "category": "IT",
+    "question": "How do I set up multi-factor authentication (MFA)?",
+    "answer": "Install the NovaTech Authenticator app on your phone, open the Security Settings page in the employee portal, choose 'Add device' and scan the QR code. Enter the 6-digit code to finish."
+  },
+  {
+    "id": "it-005",
+    "category": "IT",
+    "question": "I lost my phone. How do I get into my account with MFA?",
+    "answer": "Contact the IT Helpdesk at ext. 2020 or helpdesk@novatech.example from another device. After verifying your identity, IT will reset your MFA so you can enrol a new phone."
+  },
+  {
+    "id": "it-006",
+    "category": "IT",
+    "question": "How do I connect to the VPN?",
+    "answer": "Install the NovaTech VPN client from the Software Center, open it, sign in with your company credentials and approve the MFA prompt. Choose the 'NovaTech-Corp' profile and click Connect."
+  },
+  {
+    "id": "it-007",
+    "category": "IT",
+    "question": "Where can I download the VPN client?",
+    "answer": "The VPN client is available in the Software Center on company laptops. Windows, macOS and Linux installers are also on the IT Downloads page of the intranet."
+  },
+  {
+    "id": "it-008",
+    "category": "IT",
+    "question": "The VPN says 'connection failed' or error 809. How do I fix it?",
+    "answer": "Check that your internet connection works, then close and reopen the VPN client. Make sure your system time is correct and that you approved the MFA prompt. If the problem continues, restart your laptop and try again."
+  },
+  {
+    "id": "it-009",
+    "category": "IT",
+    "question": "How do I request a software licence?",
+    "answer": "Submit a Software Request in the IT Service Portal with the software name and a business justification. Your manager must approve it, and IT usually fulfils approved requests within 3 working days."
+  },
+  {
+    "id": "it-010",
+    "category": "IT",
+    "question": "How do I install software on my laptop?",
+    "answer": "Open the Software Center on your laptop and install any approved application with one click. Software that is not listed requires a Software Request in the IT Service Portal."
+  },
+  {
+    "id": "it-011",
+    "category": "IT",
+    "question": "Which software is approved for use?",
+    "answer": "The list of approved software is in the Software Center on your laptop and on the IT Policies page of the intranet. Do not install software from outside this list without approval."
+  },
+  {
+    "id": "it-012",
+    "category": "IT",
+    "question": "How do I connect to the guest Wi-Fi?",
+    "answer": "Choose the 'NovaTech-Guest' network and open a browser. Enter the daily access code from the reception desk, or have your host generate a visitor code in the IT Service Portal. Guest access lasts 24 hours."
+  },
+  {
+    "id": "it-013",
+    "category": "IT",
+    "question": "How do I connect to the office Wi-Fi?",
+    "answer": "Select the 'NovaTech-Corp' network and sign in with your company email and password. Company laptops connect automatically after the first sign-in."
+  },
+  {
+    "id": "it-014",
+    "category": "IT",
+    "question": "How do I set up my work email on my phone?",
+    "answer": "Install the Outlook app, add your company email address and sign in with your company credentials. Approve the MFA prompt and accept the device security policy when asked."
+  },
+  {
+    "id": "it-015",
+    "category": "IT",
+    "question": "How do I get access to a shared mailbox?",
+    "answer": "Raise a request in the IT Service Portal naming the shared mailbox. The mailbox owner must approve access, which is usually granted within 1 working day."
+  },
+  {
+    "id": "it-016",
+    "category": "IT",
+    "question": "How do I set an out-of-office reply?",
+    "answer": "In Outlook, go to File, then Automatic Replies, turn them on, set the dates and write separate messages for internal and external senders."
+  },
+  {
+    "id": "it-017",
+    "category": "IT",
+    "question": "How do I request a new laptop or a replacement?",
+    "answer": "New laptops are allocated through the IT Service Portal under 'Hardware Request', with your manager's approval. Replacement is possible when the laptop is more than 3 years old or has been assessed as unrepairable by IT."
+  },
+  {
+    "id": "it-018",
+    "category": "IT",
+    "question": "My laptop is running slowly. What can I try?",
+    "answer": "Restart your laptop, close unused applications and make sure at least 10 GB of disk space is free. Install pending system updates from the Software Center, then restart again."
+  },
+  {
+    "id": "it-019",
+    "category": "IT",
+    "question": "How do I report a phishing email?",
+    "answer": "Click the 'Report Phishing' button in Outlook. Do not click any links or open attachments. If you already clicked a link, change your password and call the IT Helpdesk at ext. 2020 immediately."
+  },
+  {
+    "id": "it-020",
+    "category": "IT",
+    "question": "How do I set up a printer?",
+    "answer": "Open Settings, then Printers, and choose 'Add printer'. Select the printer for your floor from the list and sign in at the printer with your employee badge to release print jobs."
+  },
+  {
+    "id": "it-021",
+    "category": "IT",
+    "question": "How do I join or schedule a video meeting?",
+    "answer": "Use Microsoft Teams. Click 'New meeting' or 'Schedule' in the calendar, add attendees and send the invite. Join a meeting by clicking the link in the invite."
+  },
+  {
+    "id": "it-022",
+    "category": "IT",
+    "question": "How do I get access to a shared drive or SharePoint site?",
+    "answer": "Open the site and click 'Request access', or raise an Access Request in the IT Service Portal. The site owner approves requests, usually within 1 working day."
+  },
+  {
+    "id": "it-023",
+    "category": "IT",
+    "question": "How do I recover a deleted file?",
+    "answer": "Check the Recycle Bin in OneDrive or SharePoint first. Deleted items stay there for 30 days. After that, contact the IT Helpdesk, who can restore files from backup within 90 days."
+  },
+  {
+    "id": "it-024",
+    "category": "IT",
+    "question": "How do I request a new email distribution list?",
+    "answer": "Raise a request in the IT Service Portal with the list name, owner and members. Distribution lists are normally created within 2 working days."
+  },
+  {
+    "id": "it-025",
+    "category": "IT",
+    "question": "What should I do if my laptop is lost or stolen?",
+    "answer": "Report it to the IT Helpdesk at ext. 2020 immediately, day or night, so the device can be locked and wiped remotely. Also inform your manager and the Security team at security@novatech.example."
+  },
+  {
+    "id": "it-026",
+    "category": "IT",
+    "question": "What are the IT Helpdesk contact details and hours?",
+    "answer": "The IT Helpdesk is available Monday to Friday, 9:00 AM to 6:00 PM IST. Call ext. 2020, email helpdesk@novatech.example or raise a request in the IT Service Portal."
+  },
+  {
+    "id": "it-027",
+    "category": "IT",
+    "question": "Can I use a USB drive on my laptop?",
+    "answer": "USB storage is blocked by default for security reasons. If you need it for work, request an exception in the IT Service Portal with your manager's approval."
+  },
+  {
+    "id": "it-028",
+    "category": "IT",
+    "question": "How do I request admin rights on my laptop?",
+    "answer": "Local admin rights are not granted by default. Raise a Software Request explaining what you need to install, and IT will install it for you or grant temporary access."
+  },
+  {
+    "id": "it-029",
+    "category": "IT",
+    "question": "How do I set up my email signature?",
+    "answer": "In Outlook, go to File, Options, Mail, then Signatures. Use the official template from the Brand page of the intranet so that your name, title and the company disclaimer are included."
+  },
+  {
+    "id": "it-030",
+    "category": "IT",
+    "question": "How do I check my laptop's warranty or serial number?",
+    "answer": "Your laptop's serial number is on the sticker underneath it. You can also find it in Settings under System, then About. IT tracks warranty status, so contact the IT Helpdesk to confirm it."
+  }
+]

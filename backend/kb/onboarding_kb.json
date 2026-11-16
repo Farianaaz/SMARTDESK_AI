@@ -1,0 +1,92 @@
+[
+  {
+    "id": "onb-001",
+    "category": "HR",
+    "question": "What time should I arrive on my first day at NovaTech Solutions?",
+    "answer": "You should arrive at 9:30 AM on your first day for the HR induction."
+  },
+  {
+    "id": "onb-002",
+    "category": "HR",
+    "question": "Where do I go when I arrive on my first day?",
+    "answer": "Please report to the reception area at 9:30 AM for the HR induction."
+  },
+  {
+    "id": "onb-003",
+    "category": "HR",
+    "question": "When will I receive my laptop?",
+    "answer": "Your laptop will be issued to you by the IT department on your first day."
+  },
+  {
+    "id": "onb-004",
+    "category": "HR",
+    "question": "What documents should I bring on my first day?",
+    "answer": "HR will tell you which documents to bring. If you are unsure, contact HR at hr@novatech.example or ext. 2010 before you join."
+  },
+  {
+    "id": "onb-005",
+    "category": "HR",
+    "question": "How do I enroll in health insurance?",
+    "answer": "You must complete your insurance enrolment within 30 days of joining. For help, contact HR at hr@novatech.example or ext. 2010."
+  },
+  {
+    "id": "onb-006",
+    "category": "HR",
+    "question": "Who can I contact if I have issues with my laptop?",
+    "answer": "You can contact the IT Helpdesk at ext. 2020 or helpdesk@novatech.example."
+  },
+  {
+    "id": "onb-007",
+    "category": "HR",
+    "question": "What is the buddy program?",
+    "answer": "A buddy will be assigned to you for your first three months to help you settle in and answer any questions you may have."
+  },
+  {
+    "id": "onb-008",
+    "category": "HR",
+    "question": "What should I do if I need help understanding the probation period?",
+    "answer": "Feel free to reach out to HR at hr@novatech.example or ext. 2010 for any clarifications regarding the probation period."
+  },
+  {
+    "id": "onb-009",
+    "category": "HR",
+    "question": "When will my probation period be reviewed?",
+    "answer": "Your probation period will be reviewed at 3 months and again at 6 months."
+  },
+  {
+    "id": "onb-010",
+    "category": "HR",
+    "question": "What is included in the health insurance coverage?",
+    "answer": "The health insurance covers you, your spouse, and up to two children."
+  },
+  {
+    "id": "onb-011",
+    "category": "HR",
+    "question": "What is the first-week schedule like?",
+    "answer": "Day one starts at 9:30 AM at reception with an HR induction, and your laptop and ID badge are issued that day. For the rest of your first-week plan, contact HR at hr@novatech.example or ext. 2010."
+  },
+  {
+    "id": "onb-012",
+    "category": "HR",
+    "question": "Will I receive an ID badge on my first day?",
+    "answer": "Yes. Your ID badge is issued on your first day."
+  },
+  {
+    "id": "onb-013",
+    "category": "HR",
+    "question": "What should I do if I have questions about the buddy program?",
+    "answer": "You can ask your assigned buddy or contact HR for more information about the buddy program."
+  },
+  {
+    "id": "onb-014",
+    "category": "HR",
+    "question": "How do I contact the HR Helpdesk?",
+    "answer": "You can reach the HR Helpdesk at hr@novatech.example or ext. 2010."
+  },
+  {
+    "id": "onb-015",
+    "category": "HR",
+    "question": "How long is the probation period?",
+    "answer": "The probation period is 6 months, with a review at 3 months and a final review at 6 months."
+  }
+]

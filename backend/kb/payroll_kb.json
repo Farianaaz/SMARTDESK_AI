@@ -1,0 +1,98 @@
+[
+  {
+    "id": "pay-001",
+    "category": "HR",
+    "question": "When is payday at NovaTech Solutions?",
+    "answer": "Payday at NovaTech Solutions is on the last working day of each month. Your salary will be credited to your registered bank account on this day."
+  },
+  {
+    "id": "pay-002",
+    "category": "HR",
+    "question": "How can I access my payslip?",
+    "answer": "Your payslips are available in the HR portal."
+  },
+  {
+    "id": "pay-003",
+    "category": "HR",
+    "question": "When should I submit my tax investment declarations?",
+    "answer": "Tax investment declarations should be submitted in the HR portal between April and June. Remember to submit the proofs by January."
+  },
+  {
+    "id": "pay-004",
+    "category": "HR",
+    "question": "What is the structure of my salary at NovaTech Solutions?",
+    "answer": "The salary structure typically includes basic pay, allowances, and any applicable bonuses. For detailed information, please refer to your offer letter or contact HR."
+  },
+  {
+    "id": "pay-005",
+    "category": "HR",
+    "question": "How does stock-option vesting work at NovaTech Solutions?",
+    "answer": "Stock options at NovaTech Solutions vest over four years with a one-year cliff. After the first year, they vest monthly."
+  },
+  {
+    "id": "pay-006",
+    "category": "HR",
+    "question": "What is the process for reimbursement of expenses?",
+    "answer": "Submit your receipts through the expense portal within 30 days of incurring the expense. Approved claims will be paid with the next payroll."
+  },
+  {
+    "id": "pay-007",
+    "category": "HR",
+    "question": "What should I do if my salary is not credited on payday?",
+    "answer": "If your salary is not credited on payday, please check with your bank first. If the issue persists, contact HR at hr@novatech.example or ext. 2010."
+  },
+  {
+    "id": "pay-008",
+    "category": "HR",
+    "question": "How long is the notice period after confirmation?",
+    "answer": "The notice period after confirmation at NovaTech Solutions is 60 days."
+  },
+  {
+    "id": "pay-009",
+    "category": "HR",
+    "question": "How is the final settlement processed after resignation?",
+    "answer": "The final settlement includes unpaid salary, approved reimbursements and encashment of unused earned leave. For timing and details, contact HR at hr@novatech.example or ext. 2010."
+  },
+  {
+    "id": "pay-010",
+    "category": "HR",
+    "question": "What should I do if there is an error in my payslip?",
+    "answer": "If you notice an error in your payslip, please contact HR at hr@novatech.example or ext. 2010 for assistance."
+  },
+  {
+    "id": "pay-011",
+    "category": "HR",
+    "question": "Can I submit tax proofs after January?",
+    "answer": "No. Tax proofs are due by January, and proofs submitted after January are not accepted."
+  },
+  {
+    "id": "pay-012",
+    "category": "HR",
+    "question": "How are stock options taxed at NovaTech Solutions?",
+    "answer": "Stock options are subject to taxation as per applicable laws. For specific tax advice, please consult a tax professional."
+  },
+  {
+    "id": "pay-013",
+    "category": "HR",
+    "question": "What happens if I miss the reimbursement submission deadline?",
+    "answer": "Claims must be submitted within 30 days through the expense portal. For a late claim, contact HR at hr@novatech.example or ext. 2010."
+  },
+  {
+    "id": "pay-014",
+    "category": "HR",
+    "question": "Can I change my registered bank account for salary credit?",
+    "answer": "Yes. You can change your registered bank account in the HR portal."
+  },
+  {
+    "id": "pay-015",
+    "category": "HR",
+    "question": "Is the notice period applicable during probation?",
+    "answer": "The notice period is applicable after confirmation. During probation, different terms may apply, so please refer to your employment contract or contact HR."
+  },
+  {
+    "id": "pay-016",
+    "category": "HR",
+    "question": "Can I access my payslip after leaving the company?",
+    "answer": "HR portal access ends on your last working day, so download your payslips and other documents before then."
+  }
+]

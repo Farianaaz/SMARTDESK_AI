@@ -1,0 +1,134 @@
+[
+  {
+    "id": "lv-001",
+    "category": "HR",
+    "question": "How many casual leave days do I get per year?",
+    "answer": "You are entitled to 12 days of casual leave each year."
+  },
+  {
+    "id": "lv-002",
+    "category": "HR",
+    "question": "Can I carry forward unused sick leave to the next year?",
+    "answer": "No. Unused sick leave lapses at the end of the year and cannot be carried forward."
+  },
+  {
+    "id": "lv-003",
+    "category": "HR",
+    "question": "What is the procedure to apply for earned leave?",
+    "answer": "To apply for earned leave, submit your request through the HR portal. Your manager will need to approve the leave."
+  },
+  {
+    "id": "lv-004",
+    "category": "HR",
+    "question": "How many days of earned leave can I carry forward?",
+    "answer": "You can carry forward up to 30 days of earned leave to the next year."
+  },
+  {
+    "id": "lv-005",
+    "category": "HR",
+    "question": "What should I do if I need to take more than 2 consecutive sick leave days?",
+    "answer": "If you need more than 2 consecutive sick leave days, you must provide a medical certificate."
+  },
+  {
+    "id": "lv-006",
+    "category": "HR",
+    "question": "How do I apply for maternity leave?",
+    "answer": "Apply for maternity leave through the HR portal. Your manager must approve it. Maternity leave is 26 weeks."
+  },
+  {
+    "id": "lv-007",
+    "category": "HR",
+    "question": "How long is the paternity leave?",
+    "answer": "Paternity leave is 2 weeks long."
+  },
+  {
+    "id": "lv-008",
+    "category": "HR",
+    "question": "What is compensatory off and how do I use it?",
+    "answer": "Compensatory off is given for approved weekend work. It must be used within 30 days, otherwise it lapses."
+  },
+  {
+    "id": "lv-009",
+    "category": "HR",
+    "question": "How do I apply for a compensatory off?",
+    "answer": "Submit your compensatory off request through the HR portal and wait for your manager's approval."
+  },
+  {
+    "id": "lv-010",
+    "category": "HR",
+    "question": "Can I work from home more than 2 days a week?",
+    "answer": "No, you can work from home up to 2 days a week with your manager's approval."
+  },
+  {
+    "id": "lv-011",
+    "category": "HR",
+    "question": "What are the core working hours?",
+    "answer": "The core working hours are from 11 AM to 4 PM IST."
+  },
+  {
+    "id": "lv-012",
+    "category": "HR",
+    "question": "Do I need to be available on Teams during WFH days?",
+    "answer": "Yes, you must be reachable on Teams during work-from-home days."
+  },
+  {
+    "id": "lv-013",
+    "category": "HR",
+    "question": "How do I get approval to work from home?",
+    "answer": "Work from home needs your manager's approval. You can work from home up to 2 days per week."
+  },
+  {
+    "id": "lv-014",
+    "category": "HR",
+    "question": "Can I carry forward unused casual leave?",
+    "answer": "No. Unused casual leave lapses at the end of the year and cannot be carried forward."
+  },
+  {
+    "id": "lv-015",
+    "category": "HR",
+    "question": "What should I do if my leave request is not approved?",
+    "answer": "Discuss the reason with your manager. You can also contact HR at hr@novatech.example or ext. 2010."
+  },
+  {
+    "id": "lv-016",
+    "category": "HR",
+    "question": "Is manager approval required for all types of leave?",
+    "answer": "Yes, manager approval is required for all types of leave."
+  },
+  {
+    "id": "lv-017",
+    "category": "HR",
+    "question": "Can I take casual leave for a half-day?",
+    "answer": "Yes. Casual leave can be taken in half-day units. Apply through the HR portal and get your manager's approval."
+  },
+  {
+    "id": "lv-018",
+    "category": "HR",
+    "question": "How do I know if my leave has been approved?",
+    "answer": "You will get a notification in the HR portal once your manager approves your leave."
+  },
+  {
+    "id": "lv-019",
+    "category": "HR",
+    "question": "What happens if I don't use my compensatory off within 30 days?",
+    "answer": "It lapses. Compensatory off must be used within 30 days."
+  },
+  {
+    "id": "lv-020",
+    "category": "HR",
+    "question": "How many sick leave days do I get per year?",
+    "answer": "You get 8 days of sick leave per year. A medical certificate is needed for more than 2 consecutive days."
+  },
+  {
+    "id": "lv-021",
+    "category": "HR",
+    "question": "How many earned leave days do I get per year?",
+    "answer": "You get 15 days of earned leave per year. Up to 30 days can be carried forward."
+  },
+  {
+    "id": "lv-022",
+    "category": "HR",
+    "question": "How long is maternity leave?",
+    "answer": "Maternity leave is 26 weeks."
+  }
+]

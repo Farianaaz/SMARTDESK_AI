@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+chromadb
+dotenv
+datasets
+mcp
+uv
+pydantic
+contextlib
+agent
+functools
+pathlib
+collections
+
+

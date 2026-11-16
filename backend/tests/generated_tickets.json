@@ -1,0 +1,170 @@
+[
+  {
+    "summary": "Monitor flickering periodically",
+    "description": "I'm noticing that my monitor flickers every few minutes, especially when I open multiple applications. It's a bit distracting during work. Could someone from IT check this when possible?",
+    "category": "IT",
+    "priority": "Medium",
+    "topic": "monitor flickering or no display"
+  },
+  {
+    "summary": "No display on monitor!",
+    "description": "I can't seem to get any display on my monitor. I've tried restarting my computer and checking the cables, but nothing works! This is interrupting my work. Please assist ASAP!",
+    "category": "IT",
+    "priority": "High",
+    "topic": "monitor flickering or no display"
+  },
+  {
+    "summary": "Occasional screen flicker issue",
+    "description": "My monitor flickers occasionally. It doesn't happen all the time but can be annoying when it does. Not sure what might be causing it. Can someone look into this?",
+    "category": "IT",
+    "priority": "Low",
+    "topic": "monitor flickering or no display"
+  },
+  {
+    "summary": "Parking Access Denied",
+    "description": "My parking card has stopped working and I'm unable to access the office parking lot. I've tried multiple times today. Please resolve this quickly as I'm forced to look for alternative parking spots outside.",
+    "category": "Facilities",
+    "priority": "High",
+    "topic": "office parking"
+  },
+  {
+    "summary": "Request for Parking Allocation",
+    "description": "I recently joined the company and was told I could request a parking space. Could you please guide me through the process to get assigned a spot? I prefer parking on-site rather than using public parking, especially since I'm here often till late.",
+    "category": "Facilities",
+    "priority": "Medium",
+    "topic": "office parking"
+  },
+  {
+    "summary": "Parking Lot Full Again",
+    "description": "This is the third time this week that I've arrived at the office only to find the parking lot completely full. It's extremely frustrating and is impacting my schedule. Can additional spaces be allocated or some kind of management implemented?",
+    "category": "Facilities",
+    "priority": "Critical",
+    "topic": "office parking"
+  },
+  {
+    "summary": "Keyboard Non-Responsive",
+    "description": "My keyboard suddenly stopped working this morning. I have tried reconnecting it and changing the USB port with no success. I have an important presentation coming up, and this is affecting my work. Please advise or arrange for a replacement as soon as possible.",
+    "category": "IT",
+    "priority": "High",
+    "topic": "keyboard or mouse not working"
+  },
+  {
+    "summary": "Mouse Stopped Working",
+    "description": "The mouse isn't working. Not sure if it's the battery or something else. I've tried restarting my computer, but it didn't help. Can someone take a look today?",
+    "category": "IT",
+    "priority": "Medium",
+    "topic": "keyboard or mouse not working"
+  },
+  {
+    "summary": "Keyboard Issues",
+    "description": "This is frustrating! The keyboard's number pad isn't responding again. Seriously, how often does this need fixing? Can we please sort this out once and for all?",
+    "category": "IT",
+    "priority": "Critical",
+    "topic": "keyboard or mouse not working"
+  },
+  {
+    "summary": "Docking station not detecting monitor",
+    "description": "Hi team, I am currently unable to get my external monitor to connect via the docking station. I've tried reconnecting all cables and restarting my laptop, but no success. Could someone from IT please assist? Thanks!",
+    "category": "IT",
+    "priority": "Medium",
+    "topic": "docking station problems"
+  },
+  {
+    "summary": "Docking station constantly disconnecting",
+    "description": "To whoever can fix this: my docking station keeps disconnecting randomly, which is severely disruptive during meetings and work. I need this resolved TODAY. I'm on the 3rd floor, desk 311. Please sort it out asap.",
+    "category": "IT",
+    "priority": "High",
+    "topic": "docking station problems"
+  },
+  {
+    "summary": "Power issue with docking station",
+    "description": "I noticed that the docking station doesn't seem to be powering my laptop adequately. The battery drains even while connected. I’m using a NovaTech-standard issue station. Please let me know if there's a fix or if a replacement is needed.",
+    "category": "IT",
+    "priority": "Low",
+    "topic": "docking station problems"
+  },
+  {
+    "summary": "Projector remote missing",
+    "description": "I couldn't find the remote control for the projector in Conference Room B. Could someone please check if it was misplaced or removed? It's needed for tomorrow's presentation.",
+    "category": "IT",
+    "priority": "Medium",
+    "topic": "projector or conference room equipment"
+  },
+  {
+    "summary": "Conference screen not working",
+    "description": "This is seriously getting on my nerves! The screen in Conference Room A won't turn on again. This issue keeps happening and it messes up our meetings. Needs fixing ASAP!",
+    "category": "IT",
+    "priority": "High",
+    "topic": "projector or conference room equipment"
+  },
+  {
+    "summary": "Need HDMI adapter",
+    "description": "Hey, we're missing an HDMI adapter in the small meeting room on the second floor. Could you please provide one? We've got a meeting scheduled in an hour.",
+    "category": "IT",
+    "priority": "Critical",
+    "topic": "projector or conference room equipment"
+  },
+  {
+    "summary": "Badge not working at main entrance",
+    "description": "I tried to enter through the main entrance this morning, but my badge didn't work. Could you please look into it? Thanks.",
+    "category": "IT",
+    "priority": "Medium",
+    "topic": "badge or door access not working"
+  },
+  {
+    "summary": "Urgent: Unable to access secured areas",
+    "description": "I'm unable to access the secured areas on the third floor with my employee badge. This is frustrating as I have an important meeting in 10 minutes and can't reach my workspace. Please resolve this issue immediately.",
+    "category": "IT",
+    "priority": "Critical",
+    "topic": "badge or door access not working"
+  },
+  {
+    "summary": "Issue with office door access",
+    "description": "The office door access isn't working for my badge. I've been having this issue since yesterday afternoon. Could someone from IT please check this at the earliest?",
+    "category": "IT",
+    "priority": "High",
+    "topic": "badge or door access not working"
+  },
+  {
+    "summary": "Webcam Not Detected by Zoom",
+    "description": "I've tried starting a video call on Zoom, but my external webcam isn't being recognized. I’ve checked the connections and rebooted the computer. I need this resolved before my client meeting at 3 PM today. Please assist urgently.",
+    "category": "IT",
+    "priority": "High",
+    "topic": "headset or webcam issues"
+  },
+  {
+    "summary": "Static Noise in Headset",
+    "description": "There’s a constant static noise in my headset that makes it hard to concentrate. I’ve tried using different ports and other headsets work fine. Not sure if it’s a hardware issue with this specific headset but it needs checking.",
+    "category": "IT",
+    "priority": "Medium",
+    "topic": "headset or webcam issues"
+  },
+  {
+    "summary": "Webcam flickers during calls",
+    "description": "My webcam flickers during video calls. It’s not a huge issue but quite distracting. Could you look into it when possible?",
+    "category": "IT",
+    "priority": "Low",
+    "topic": "headset or webcam issues"
+  },
+  {
+    "summary": "Request for Ergonomic Chair",
+    "description": "My current chair is uncomfortable and causing back pain. I believe an ergonomic chair would help improve my posture and productivity. Could you please assist with this request?",
+    "category": "IT",
+    "priority": "Medium",
+    "topic": "ergonomic chair or desk request"
+  },
+  {
+    "summary": "Need Immediate Ergonomic Desk Replacement",
+    "description": "I've been having severe neck and shoulder pain due to my current desk setup. I've tried adjusting things myself, but it's not helping. This is impacting my work quality. Please expedite a replacement for an ergonomic desk.",
+    "category": "IT",
+    "priority": "High",
+    "topic": "ergonomic chair or desk request"
+  },
+  {
+    "summary": "Furniture Upgrade Needed",
+    "description": "The chair I have right now is quite old and uncomfortable. A new ergonomic chair would really help. Would appreciate any updates on when I could expect this.",
+    "category": "IT",
+    "priority": "Low",
+    "topic": "ergonomic chair or desk request"
+  }
+]
