@@ -1,4 +1,4 @@
-# SmartDesk (minimal)
+# SmartDesk 
 
 Backend (terminal 1):
     cd backend
