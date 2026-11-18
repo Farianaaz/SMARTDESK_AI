@@ -14,7 +14,7 @@ Langsmith
 Backend (terminal 1):
     cd backend
     python -m venv .venv
-    .venv\Scripts\activate
+    .venv/Scripts/bin/activate
     pip install -r requirements.txt
     uvicorn main:app --reload --port 8000
 
