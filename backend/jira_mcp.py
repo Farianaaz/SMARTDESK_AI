@@ -33,6 +33,9 @@ def _server_params():
 
     # Secrets come from the environment (.env), never from code.
     env = {k: os.environ[k] for k in ("JIRA_URL", "JIRA_USERNAME", "JIRA_API_TOKEN") if k in os.environ}
+    # mcp-atlassian will soon expose only a core set of tools by default; ask for all so
+    # jira_create_issue / jira_get_issue / jira_search stay available after an upgrade.
+    env["TOOLSETS"] = os.getenv("TOOLSETS", "all")
     return StdioServerParameters(command=COMMAND, args=ARGS, env=env)
 
 

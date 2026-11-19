@@ -81,6 +81,39 @@ ROUTING = [
 ]
 
 
+# Retrieval comparison (python -m evals.run_eval --compare-retrievers): where does each method win?
+# keyword queries contain exact terms (codes, names, numbers): BM25 should help
+KEYWORD_QUERIES = [
+    ("error 809", ["809"]),
+    ("5 failed sign-in attempts", ["5 failed"]),
+    ("10 GB disk space", ["10 GB"]),
+    ("security@novatech.example", ["security@novatech.example"]),
+    ("passwords.novatech.example", ["passwords.novatech.example"]),
+    ("NovaTech-Guest", ["NovaTech-Guest"]),
+    ("Report Phishing button", ["Report Phishing"]),
+    ("90 days backup restore", ["90 days"]),
+    ("NovaTech Authenticator QR code", ["QR code"]),
+    ("Software Center VPN client", ["software center"]),
+]
+# semantic queries are paraphrases with almost no shared words: dense search should help
+SEMANTIC_QUERIES = [
+    ("I can't remember my login credentials", ["password portal"]),
+    ("my phone with the authenticator got stolen", ["reset your mfa"]),
+    ("how many days off can I take when ill", ["8 days"]),
+    ("how do I get money back for work purchases", ["expense portal"]),
+    ("can I work remotely a few days", ["2 days"]),
+    ("when will salary hit my bank account", ["last working day"]),
+    ("what happens to my share options over time", ["cliff"]),
+    ("are my dependents covered by medical insurance", ["spouse"]),
+    ("what do I do on my first morning", ["9:30"]),
+    ("how to add work mail to my mobile", ["outlook app"]),
+]
+
+
+def retrieval_groups():
+    return {"standard": ANSWERABLE, "keyword": KEYWORD_QUERIES, "semantic": SEMANTIC_QUERIES}
+
+
 def answerable_examples():
     return [{"inputs": {"question": q}, "outputs": {"expected_keywords": kw}} for q, kw in ANSWERABLE]
 

@@ -5,6 +5,7 @@ Every user message runs through `classify`, which routes to a branch:
   kb_query      -> rag_answer -> (not confident) -> offer_ticket -> draft_ticket ...
   create_ticket -> draft_ticket -> ensure_email -> confirm_ticket -> submit_ticket
   ticket_status -> ensure_email -> ticket_status
+  manage_email  -> manage_email (forget / change the saved email)
   smalltalk / out_of_scope -> canned reply
 
 Human-in-the-loop uses LangGraph `interrupt()`: when a node needs more input (email,
@@ -12,7 +13,8 @@ yes/no confirmation, which ticket to show) the graph pauses, the question goes t
 and their next message resumes the graph exactly where it stopped. State (including the
 email, so it is never asked twice) is kept per session by a checkpointer.
 
-
+Run:  python agent.py             # chat in the terminal
+      python agent.py --diagram   # print a Mermaid diagram for your README
 """
 import logging
 import re
@@ -25,6 +27,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.types import Command, interrupt
 
 import llm
+import profiles
 import rag
 import tickets
 
@@ -41,11 +44,13 @@ class AgentState(TypedDict, total=False):
     intent: str
     flow: str | None             # "create" or "status": decides what follows ensure_email
     escalate: bool               # RAG could not answer
+    cached: bool                 # the answer came from the answer cache
     wants_ticket: bool
     reroute: bool                # user typed something new instead of yes/no
     cancelled: bool
     confirmed: bool
-    email: str | None            # persists for the whole session
+    user_id: str | None          # anonymous browser id: lets the saved email follow the user across sessions
+    email: str | None            # saved per user (profiles.py), so it is asked once
     last_question: str | None    # the unanswered question, used to draft the ticket
     draft: dict
     reply: str
@@ -82,7 +87,8 @@ def _ticket_summary(draft: dict, email: str) -> str:
         f"- Category: {draft['category']}\n"
         f"- Priority: {draft['priority']}\n"
         f"- Email: {email}\n\n"
-        "Shall I go ahead? (yes/no) You can also type extra details to add them."
+        "Shall I go ahead? (yes/no) You can also type extra details to add them. "
+        "(Not your email? Say 'change my email'.)"
     )
 
 
@@ -93,6 +99,7 @@ def classify(state: AgentState):
         "intent": intent,
         "flow": "status" if intent == "ticket_status" else None,
         "escalate": False,
+        "cached": False,
         "wants_ticket": False,
         "reroute": False,
         "cancelled": False,
@@ -111,7 +118,7 @@ def rag_answer(state: AgentState):
         return {"reply": "I'm having trouble reaching my knowledge base right now. Please try again in a few minutes."}
     if result["escalate"]:
         return {"escalate": True, "last_question": question}
-    return {"reply": result["answer"]}
+    return {"reply": result["answer"], "cached": result["cached"]}
 
 
 def offer_ticket(state: AgentState):
@@ -142,6 +149,24 @@ def draft_ticket(state: AgentState):
     }
 
 
+def manage_email(state: AgentState):
+    """Let the user forget or change the email SmartDesk has saved for them."""
+    msg = state["message"]
+    user_id = state.get("user_id")
+    if re.search(r"\b(forget|clear|remove|delete)\b", msg, re.I):
+        profiles.forget(user_id)
+        return {"email": None, "reply": "Done. I've forgotten your saved email address. I'll ask for it again next time I need it."}
+    match = EMAIL_RE.search(msg)
+    if not match:
+        ans = _ask("Sure. Which email address should I use from now on?")
+        match = None if _is_cancel(ans) else EMAIL_RE.search(ans)
+        if not match:
+            return {"reply": "Okay, I've kept your current email address."}
+    email = match.group(0).lower()
+    profiles.set_email(user_id, email)
+    return {"email": email, "reply": f"Got it. I'll use {email} from now on."}
+
+
 def ensure_email(state: AgentState):
     if state.get("email"):
         return {"email": state["email"]}
@@ -156,7 +181,9 @@ def ensure_email(state: AgentState):
             return {"cancelled": True, "reply": "Okay, I've cancelled that. Anything else I can help with?"}
         match = EMAIL_RE.search(ans)
         if match:
-            return {"email": match.group(0).lower()}
+            email = match.group(0).lower()
+            profiles.set_email(state.get("user_id"), email)  # remember it for future sessions
+            return {"email": email}
         prompt = "That doesn't look like a valid email address. Please try again, or type 'cancel'."
 
 
@@ -218,10 +245,10 @@ def ticket_status(state: AgentState):
     if not found:
         return {"reply": f"I couldn't find any tickets for {email}."}
     if len(found) == 1:
-        return {"reply": _ticket_details(found[0])}
+        return {"reply": f"Here is your ticket for {email}:\n\n{_ticket_details(found[0])}"}
 
     listing = "\n".join(f"{i}. {t['id']}: {t['summary']} (Status: {t['status']})" for i, t in enumerate(found, 1))
-    ans = _ask(f"I found {len(found)} tickets:\n{listing}\n\nWhich one would you like details on? Reply with the number or ticket ID.")
+    ans = _ask(f"I found {len(found)} tickets for {email}:\n{listing}\n\nWhich one would you like details on? Reply with the number or ticket ID.")
     chosen = _pick_ticket(found, ans)
     if not chosen:
         return {"reply": "I couldn't match that to one of your tickets. Ask me again and pick a number from the list."}
@@ -246,6 +273,7 @@ INTENT_TO_NODE = {
     "kb_query": "rag_answer",
     "create_ticket": "draft_ticket",
     "ticket_status": "ensure_email",
+    "manage_email": "manage_email",
     "smalltalk": "smalltalk",
     "out_of_scope": "out_of_scope",
 }
@@ -285,7 +313,7 @@ def build_graph():
         ("classify", classify), ("rag_answer", rag_answer), ("offer_ticket", offer_ticket),
         ("draft_ticket", draft_ticket), ("ensure_email", ensure_email), ("confirm_ticket", confirm_ticket),
         ("submit_ticket", submit_ticket), ("ticket_status", ticket_status),
-        ("smalltalk", smalltalk), ("out_of_scope", out_of_scope),
+        ("smalltalk", smalltalk), ("out_of_scope", out_of_scope), ("manage_email", manage_email),
     ]:
         g.add_node(name, fn)
 
@@ -296,7 +324,7 @@ def build_graph():
     g.add_conditional_edges("draft_ticket", after_draft, ["ensure_email", END])
     g.add_conditional_edges("ensure_email", after_email, ["ticket_status", "confirm_ticket", END])
     g.add_conditional_edges("confirm_ticket", after_confirm, ["submit_ticket", END])
-    for terminal in ("submit_ticket", "ticket_status", "smalltalk", "out_of_scope"):
+    for terminal in ("submit_ticket", "ticket_status", "smalltalk", "out_of_scope", "manage_email"):
         g.add_edge(terminal, END)
 
     return g.compile(checkpointer=MemorySaver())
@@ -316,18 +344,30 @@ def reset(session_id: str) -> None:
     _epoch[session_id] = _epoch.get(session_id, 0) + 1
 
 
-def chat(session_id: str, message: str) -> dict:
-    """Send one user message. Returns {"reply", "intent", "awaiting_input"}."""
+def chat(session_id: str, message: str, user_id: str | None = None) -> dict:
+    """Send one user message. Returns {"reply", "intent", "awaiting_input", "cached"}.
+
+    user_id is the anonymous browser id. If we already know this user's email from an earlier
+    session, it is loaded into the graph state, so the agent never has to ask for it again."""
     config = _config(session_id)
+    config["run_name"] = "smartdesk_chat"  # label shown in LangSmith traces
     paused = bool(graph.get_state(config).next)  # True when the last turn ended on an interrupt
-    graph.invoke(Command(resume=message) if paused else {"message": message}, config)
+    if paused:
+        graph.invoke(Command(resume=message), config)
+    else:
+        payload = {"message": message, "user_id": user_id}
+        saved_email = profiles.get_email(user_id)
+        if saved_email:
+            payload["email"] = saved_email
+        graph.invoke(payload, config)
 
     snap = graph.get_state(config)
     if snap.next:  # paused again: the interrupt payload is the question for the user
         prompts = [i.value for task in snap.tasks for i in task.interrupts]
-        return {"reply": str(prompts[0]), "intent": snap.values.get("intent"), "awaiting_input": True}
+        return {"reply": str(prompts[0]), "intent": snap.values.get("intent"), "awaiting_input": True, "cached": False}
     return {"reply": snap.values.get("reply") or "Sorry, I didn't get that.",
-            "intent": snap.values.get("intent"), "awaiting_input": False}
+            "intent": snap.values.get("intent"), "awaiting_input": False,
+            "cached": bool(snap.values.get("cached"))}
 
 
 if __name__ == "__main__":

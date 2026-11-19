@@ -14,6 +14,7 @@ BASE = Path(__file__).parent
 KB_DIR = BASE / "kb"
 DB_PATH = BASE / "chroma_db"
 COLLECTION = "smartdesk_kb"
+CACHE_COLLECTION = "smartdesk_cache"
 
 
 def load_entries() -> list[dict]:
@@ -39,6 +40,11 @@ def main():
     except Exception:
         pass  # first run: nothing to delete
     col = client.create_collection(COLLECTION, metadata={"hnsw:space": "cosine"})
+    try:
+        client.delete_collection(CACHE_COLLECTION)  # cached answers may be stale after a KB change
+        print("Cleared the answer cache")
+    except Exception:
+        pass
 
     col.add(
         ids=[e["id"] for e in entries],

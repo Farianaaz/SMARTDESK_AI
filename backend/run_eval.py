@@ -4,6 +4,8 @@
   python -m evals.run_eval --no-judge       # skip the LLM-judge metrics (faster, cheaper)
   python -m evals.run_eval --langsmith      # ALSO log datasets + experiments to LangSmith
   python -m evals.run_eval --only routing   # one suite: answerable | unanswerable | routing
+  python -m evals.run_eval --compare-retrievers   # dense vs BM25 vs hybrid vs hybrid+rerank (no LLM calls, free)
+  python -m evals.run_eval --compare-retrievers --details   # also list the queries where the methods differ
 
 Run from the backend/ folder. Needs the KB indexed (python ingest.py) and OPENAI_* in .env.
 LangSmith needs LANGSMITH_API_KEY in .env and `pip install -U langsmith` (>= 0.3.13).
@@ -24,8 +26,8 @@ load_dotenv()
 
 import llm  # noqa: E402
 import rag  # noqa: E402
-from evals import dataset as ds  # noqa: E402
-from evals import evaluators as ev  # noqa: E402
+import dataset as ds  # noqa: E402
+import evaluators as ev  # noqa: E402
 
 log = logging.getLogger("evals")
 
@@ -121,6 +123,68 @@ def print_table(title: str, metrics: dict, n: int, errors: int):
         print(f"| {k} | {v} |")
 
 
+# ------------------------------------------------------------------ retrieval comparison
+def compare_retrievers(details: bool = False) -> list[dict]:
+    """Same queries through each retrieval mode. A hit = an entry containing ALL expected facts.
+    hit@1 / hit@3: share of queries with a hit at rank 1 / within the top 3. MRR@5: mean reciprocal rank."""
+    groups = ds.retrieval_groups()
+    unavailable = []
+    if not rag.bm25_available():
+        unavailable += ["bm25", "hybrid", "hybrid_rerank"]
+    elif not rag.reranker_available():
+        unavailable += ["hybrid_rerank"]
+    rows, per_query = [], {}
+    for mode in rag.MODES:
+        if mode in unavailable:
+            print(f"Skipping {mode}: package missing (pip install rank-bm25 flashrank)")
+            continue
+        per_group, all_ranks, latencies = {}, [], []
+        for group, queries in groups.items():
+            ranks = []
+            for question, keywords in queries:
+                t0 = time.perf_counter()
+                hits = rag.retrieve(question, k=5, mode=mode)
+                latencies.append((time.perf_counter() - t0) * 1000)
+                rank = next((i for i, h in enumerate(hits, 1)
+                             if all(k.lower() in h["text"].lower() for k in keywords)), None)
+                ranks.append(rank)
+                per_query.setdefault(question, {"group": group})[mode] = rank
+            per_group[group] = ranks
+            all_ranks += ranks
+
+        def hit_at(ranks, k):
+            return sum(1 for r in ranks if r and r <= k) / len(ranks)
+
+        rows.append({
+            "mode": mode,
+            "hit@1": round(hit_at(all_ranks, 1), 3),
+            "hit@3": round(hit_at(all_ranks, 3), 3),
+            "MRR@5": round(sum(1 / r for r in all_ranks if r) / len(all_ranks), 3),
+            "hit@3 standard": round(hit_at(per_group["standard"], 3), 3),
+            "hit@3 keyword": round(hit_at(per_group["keyword"], 3), 3),
+            "hit@3 semantic": round(hit_at(per_group["semantic"], 3), 3),
+            "latency_p50_ms": round(_percentile(latencies, 50), 1),
+        })
+    n = sum(len(q) for q in groups.values())
+    print(f"\n### Retrieval comparison  (n={n} queries)")
+    headers = list(rows[0].keys())
+    print("| " + " | ".join(headers) + " |\n|" + "---|" * len(headers))
+    for r in rows:
+        print("| " + " | ".join(str(r[h]) for h in headers) + " |")
+
+    modes_run = [r["mode"] for r in rows]
+    unequal = {q: d for q, d in per_query.items()
+               if len({d.get(m) for m in modes_run}) > 1 or d.get(modes_run[-1]) != 1}
+    print(f"\n{len(unequal)} of {n} queries are not ranked #1 by every method (rank of the correct entry; - = not in top 5)")
+    if details:
+        print("| query | group | " + " | ".join(modes_run) + " |\n|" + "---|" * (len(modes_run) + 2))
+        for q, d in unequal.items():
+            print(f"| {q} | {d['group']} | " + " | ".join(str(d.get(m) or "-") for m in modes_run) + " |")
+    else:
+        print("Add --details to list them.")
+    return rows, per_query
+
+
 # ------------------------------------------------------------------ LangSmith
 def run_langsmith(suites: list[dict]):
     if not os.getenv("LANGSMITH_API_KEY"):
@@ -149,8 +213,17 @@ def main():
     parser.add_argument("--no-judge", action="store_true", help="skip LLM-judge metrics")
     parser.add_argument("--langsmith", action="store_true", help="also log to LangSmith")
     parser.add_argument("--only", choices=[s["name"] for s in SUITES])
+    parser.add_argument("--compare-retrievers", action="store_true", help="compare retrieval modes and exit")
+    parser.add_argument("--details", action="store_true", help="with --compare-retrievers: list queries where methods differ")
     args = parser.parse_args()
     logging.basicConfig(level=logging.WARNING)
+
+    if args.compare_retrievers:
+        rows, per_query = compare_retrievers(details=args.details)
+        out = Path(__file__).parent / "retriever_comparison.json"
+        out.write_text(json.dumps({"summary": rows, "per_query": per_query}, indent=2), encoding="utf-8")
+        print(f"Saved {out}")
+        return
 
     suites = [s for s in SUITES if not args.only or s["name"] == args.only]
     if args.no_judge:

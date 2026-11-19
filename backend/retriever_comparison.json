@@ -1,0 +1,396 @@
+{
+  "summary": [
+    {
+      "mode": "dense",
+      "hit@1": 0.94,
+      "hit@3": 0.98,
+      "MRR@5": 0.96,
+      "hit@3 standard": 1.0,
+      "hit@3 keyword": 0.9,
+      "hit@3 semantic": 1.0,
+      "latency_p50_ms": 60.2
+    },
+    {
+      "mode": "bm25",
+      "hit@1": 0.74,
+      "hit@3": 0.82,
+      "MRR@5": 0.78,
+      "hit@3 standard": 0.9,
+      "hit@3 keyword": 1.0,
+      "hit@3 semantic": 0.4,
+      "latency_p50_ms": 60.3
+    },
+    {
+      "mode": "hybrid",
+      "hit@1": 0.92,
+      "hit@3": 1.0,
+      "MRR@5": 0.96,
+      "hit@3 standard": 1.0,
+      "hit@3 keyword": 1.0,
+      "hit@3 semantic": 1.0,
+      "latency_p50_ms": 61.1
+    },
+    {
+      "mode": "hybrid_rerank",
+      "hit@1": 0.94,
+      "hit@3": 1.0,
+      "MRR@5": 0.97,
+      "hit@3 standard": 1.0,
+      "hit@3 keyword": 1.0,
+      "hit@3 semantic": 1.0,
+      "latency_p50_ms": 106.7
+    }
+  ],
+  "per_query": {
+    "I forgot my password, how do I get a new one?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": null,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How do I connect to the VPN?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How many sick leave days do I get per year?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How many casual leave days do I get in a year?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How many earned leave days are there annually?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 2,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How long is paternity leave?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "What is the duration of maternity leave?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "Am I allowed to work from home?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "What are the core working hours?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "When do I get paid each month?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How do I get my expenses reimbursed?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How does stock option vesting work?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How long is the probation period?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How long is the notice period after confirmation?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "When will I receive my laptop?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "What time should I arrive on day one?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "Who is covered by the company health insurance?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": null,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How long do I have to complete insurance enrolment?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "What is the IT helpdesk extension?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How can I contact the HR helpdesk by email?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How do I get on the guest Wi-Fi?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How do I report a phishing email?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "My account got locked, what should I do?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "What are the password requirements?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How do I set up multi-factor authentication?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "Can I plug a USB stick into my laptop?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": null,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How long do deleted files stay in the recycle bin?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How do I ask for a software licence?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "How many earned leave days can I carry forward?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "What should I do if my laptop is lost or stolen?": {
+      "group": "standard",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "error 809": {
+      "group": "keyword",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "5 failed sign-in attempts": {
+      "group": "keyword",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "10 GB disk space": {
+      "group": "keyword",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "security@novatech.example": {
+      "group": "keyword",
+      "dense": null,
+      "bm25": 1,
+      "hybrid": 2,
+      "hybrid_rerank": 1
+    },
+    "passwords.novatech.example": {
+      "group": "keyword",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "NovaTech-Guest": {
+      "group": "keyword",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "Report Phishing button": {
+      "group": "keyword",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "90 days backup restore": {
+      "group": "keyword",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "NovaTech Authenticator QR code": {
+      "group": "keyword",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "Software Center VPN client": {
+      "group": "keyword",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "I can't remember my login credentials": {
+      "group": "semantic",
+      "dense": 1,
+      "bm25": null,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "my phone with the authenticator got stolen": {
+      "group": "semantic",
+      "dense": 1,
+      "bm25": null,
+      "hybrid": 2,
+      "hybrid_rerank": 2
+    },
+    "how many days off can I take when ill": {
+      "group": "semantic",
+      "dense": 1,
+      "bm25": null,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "how do I get money back for work purchases": {
+      "group": "semantic",
+      "dense": 2,
+      "bm25": null,
+      "hybrid": 2,
+      "hybrid_rerank": 2
+    },
+    "can I work remotely a few days": {
+      "group": "semantic",
+      "dense": 1,
+      "bm25": 2,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "when will salary hit my bank account": {
+      "group": "semantic",
+      "dense": 2,
+      "bm25": 2,
+      "hybrid": 2,
+      "hybrid_rerank": 2
+    },
+    "what happens to my share options over time": {
+      "group": "semantic",
+      "dense": 1,
+      "bm25": null,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "are my dependents covered by medical insurance": {
+      "group": "semantic",
+      "dense": 1,
+      "bm25": null,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "what do I do on my first morning": {
+      "group": "semantic",
+      "dense": 1,
+      "bm25": 2,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    },
+    "how to add work mail to my mobile": {
+      "group": "semantic",
+      "dense": 1,
+      "bm25": 1,
+      "hybrid": 1,
+      "hybrid_rerank": 1
+    }
+  }
+}
