@@ -25,7 +25,7 @@ Frontend (terminal 2):
     npm install
     npm run dev
 
-Open http://localhost:5173 and click Send: the reply is "Hello World".
+Open http://localhost:5173 and click Send
 
 ## System Architecture
 
