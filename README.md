@@ -11,6 +11,8 @@ MCP
 Langsmith
 
 
+
+
 Backend (terminal 1):
     cd backend
     python -m venv .venv
@@ -31,6 +33,12 @@ Open http://localhost:5173 and click Send: the reply is "Hello World".
 
 ## Langraph 
 [./images/langraph.png]
+
+
+## KB
+
+"syncora/hr-policies-qa-dataset", split="train"
+Generated kb using llm
 
 
 # Retrieval comparison  (n=50 queries)
